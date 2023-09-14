@@ -7,6 +7,8 @@ output: github_document
 
 # Problem 1
 
+## Load library and dataset
+
 Load the `moderndive` library, and load the `early_january_weather` dataset.
 
 ```{r}
@@ -18,6 +20,8 @@ data("early_january_weather")
 ## Short description of the dataset
 
 According to the dataset help file, `early_january_weather` contains hourly meteorological data for LGA, JFK, and EWR.
+
+### Summary of variables
 
 Here are the variables included in the dataset:
 
@@ -33,11 +37,17 @@ Here are the variables included in the dataset:
 * `visib` is visibility in miles. 
 * `time_hour` is the date and hour of the recording as a `POSIXct` date.
 
+### Size of dataset
+
 The size of the `early_january_weather` dataset is `r nrow(early_january_weather)` rows by `r ncol(early_january_weather)` columns.
+
+### Mean temperature
 
 The mean temperature recorded is `r mean(early_january_weather$temp)` degrees Fahrenheit.
 
 ## Scatterplot
+
+### Create the scatterplot
 
 Make a scatterplot of `temp` (y) vs. `time_hour` (x); color points using the `humid` variable (adding `color = ...` inside of `aes` in your `ggplot` code should help). 
 
@@ -47,7 +57,11 @@ library(tidyverse)
 ggplot(early_january_weather, aes(x = time_hour, y = temp, color = humid)) + geom_point()
 ```
 
+### Interpretation
+
 From the scatterplot, we can see that the temperature fluctuates throughout each day, but the temperature is generally trending upward over the timeframe. Humidity appears to stay fairly low other than a period of a few days where the humidity is higher. The temperature fluctuates less during that period of higher humidity.
+
+### Save!
 
 Export the scatterplot to the project directory.
 
@@ -55,7 +69,10 @@ Export the scatterplot to the project directory.
 ggsave("prob1_scatterplot.pdf")
 ```
 
+
 # Problem 2
+
+## Create dataframe
 
 Create a dataframe comprised of:
 
@@ -73,6 +90,8 @@ prob2_df = tibble(
 )
 ```
 
+## Calculate means
+
 Try to take the mean of each variable in your dataframe. What works and what doesn't?
 
 ```{r}
@@ -85,5 +104,17 @@ mean(pull(prob2_df, var = vec_char))
 mean(pull(prob2_df, var = vec_factor))
 ```
 
-The random sample vector `vec_norm` and the logical vector `vec_logic` work for calculating the mean. The character vector `vec_char` and the factor vector `vec_factor` do not work.
+The random sample variable `vec_norm` and the logical variable `vec_logic` work for calculating the mean. The character variable `vec_char` and the factor variable `vec_factor` do not work.
+
+## Convert variables
+
+Write a code chunk that applies the `as.numeric` function to the logical, character, and factor variables (please show this chunk but not the output). What happens, and why? Does this help explain what happens when you try to take the mean?
+
+```{r, eval = FALSE}
+as.numeric(pull(prob2_df, var = vec_logic))
+
+as.numeric(pull(prob2_df, var = vec_char))
+
+as.numeric(pull(prob2_df, var = vec_factor))
+```
 
