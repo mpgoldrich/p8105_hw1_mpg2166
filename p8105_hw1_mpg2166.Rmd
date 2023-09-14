@@ -35,7 +35,7 @@ Here are the variables included in the dataset:
 
 The size of the `early_january_weather` dataset is `r nrow(early_january_weather)` rows by `r ncol(early_january_weather)` columns.
 
-The mean temperature recorded is `r mean(early_january_weather[["temp"]])` degrees Fahrenheit.
+The mean temperature recorded is `r mean(early_january_weather$temp)` degrees Fahrenheit.
 
 ## Scatterplot
 
@@ -75,5 +75,15 @@ prob2_df = tibble(
 
 Try to take the mean of each variable in your dataframe. What works and what doesn't?
 
+```{r}
+mean(pull(prob2_df, var = vec_norm))
 
+mean(pull(prob2_df, var = vec_logic))
+
+mean(pull(prob2_df, var = vec_char))
+
+mean(pull(prob2_df, var = vec_factor))
+```
+
+The random sample vector `vec_norm` and the logical vector `vec_logic` work for calculating the mean. The character vector `vec_char` and the factor vector `vec_factor` do not work.
 
