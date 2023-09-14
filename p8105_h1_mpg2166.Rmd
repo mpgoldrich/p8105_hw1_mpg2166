@@ -1,0 +1,8 @@
+---
+title: "P8105 Homework 1"
+author: "Madison Goldrich"
+date: "2023-09-14"
+output: github_document
+---
+
+
