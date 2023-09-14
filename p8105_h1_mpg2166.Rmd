@@ -5,4 +5,13 @@ date: "2023-09-14"
 output: github_document
 ---
 
+# Problem 1
+
+Load the `moderndive` library, and load the `early_january_weather` dataset.
+
+```{r}
+library(moderndive)
+
+data("early_january_weather")
+```
 
