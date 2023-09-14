@@ -57,7 +57,23 @@ ggsave("prob1_scatterplot.pdf")
 
 # Problem 2
 
-Create a dataframe.
+Create a dataframe comprised of:
+
+* a random sample of size 10 from a standard Normal distribution
+* a logical vector indicating whether elements of the sample are greater than 0
+* a character vector of length 10
+* a factor vector of length 10, with 3 different factor “levels”
+
+```{r}
+prob2_df = tibble(
+  vec_norm = rnorm(10),
+  vec_logic = c(vec_norm>0),
+  vec_char = c("This", "is", "a","character", "vector", "of", "length", "ten", "haha", "yay!"),
+  vec_factor = factor(c("small", "medium", "large", "large", "medium", "small", "medium", "large", "small", "small"))
+)
+```
+
+Try to take the mean of each variable in your dataframe. What works and what doesn't?
 
 
 
