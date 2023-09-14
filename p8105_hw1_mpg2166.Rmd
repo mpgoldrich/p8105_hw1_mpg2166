@@ -55,3 +55,9 @@ Export the scatterplot to the project directory.
 ggsave("prob1_scatterplot.pdf")
 ```
 
+# Problem 2
+
+Create a dataframe.
+
+
+
