@@ -36,3 +36,15 @@ Here are the variables included in the dataset:
 The size of the `early_january_weather` dataset is `r nrow(early_january_weather)` rows by `r ncol(early_january_weather)` columns.
 
 The mean temperature recorded is `r mean(early_january_weather[["temp"]])` degrees Fahrenheit.
+
+## Scatterplot
+
+Make a scatterplot of `temp` (y) vs. `time_hour` (x); color points using the `humid` variable (adding `color = ...` inside of `aes` in your `ggplot` code should help). 
+
+```{r}
+library(tidyverse)
+
+ggplot(early_january_weather, aes(x = time_hour, y = temp, color = humid)) + geom_point()
+```
+
+
