@@ -15,3 +15,24 @@ library(moderndive)
 data("early_january_weather")
 ```
 
+## Short description of the dataset
+
+According to the dataset help file, `early_january_weather` contains hourly meteorological data for LGA, JFK, and EWR.
+
+Here are the variables included in the dataset:
+
+* `origin` is the weather station. This is EWR for all data points.
+* `year`, `month`, `day`, and `hour` represent the time of the weather recording.
+  * `year` is 2013.
+  * `month` is January, represented as 1.
+* `temp` and `dewp`are the temperature and dewpoint in F.
+* `humid` is relative humidity.
+* `wind_dir`, `wind_speed`, and `wind_gust` are wind direction (in degrees), speed and gust speed (in mph).
+* `precip` is preciptation, in inches.
+* `pressure` is sea level pressure in millibars.
+* `visib` is visibility in miles. 
+* `time_hour` is the date and hour of the recording as a `POSIXct` date.
+
+The size of the `early_january_weather` dataset is `r nrow(early_january_weather)` rows by `r ncol(early_january_weather)` columns.
+
+The mean temperature recorded is `r mean(early_january_weather[["temp"]])` degrees Fahrenheit.
