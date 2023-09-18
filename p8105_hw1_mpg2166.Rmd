@@ -27,14 +27,18 @@ Here are the variables included in the dataset:
 
 * `origin` is the weather station. This is EWR for all data points.
 * `year`, `month`, `day`, and `hour` represent the time of the weather recording.
-  * `year` is 2013.
-  * `month` is January, represented as 1.
+  * `year` is `r mean(early_january_weather$year)`.
+  * `month` is January, represented as `r mean(early_january_weather$month)`.
 * `temp` and `dewp`are the temperature and dewpoint in F.
 * `humid` is relative humidity.
 * `wind_dir`, `wind_speed`, and `wind_gust` are wind direction (in degrees), speed and gust speed (in mph).
 * `precip` is preciptation, in inches.
+  * Mean: `r mean(early_january_weather$precip)` inches
+  * Standard deviation: `r sd(early_january_weather$precip)` inches
 * `pressure` is sea level pressure in millibars.
 * `visib` is visibility in miles. 
+  * Mean: `r mean(early_january_weather$visib)` miles
+  * Standard deviation: `r sd(early_january_weather$precip)` miles
 * `time_hour` is the date and hour of the recording as a `POSIXct` date.
 
 ### Size of dataset
@@ -43,7 +47,7 @@ The size of the `early_january_weather` dataset is `r nrow(early_january_weather
 
 ### Mean temperature
 
-The mean temperature recorded is `r mean(early_january_weather$temp)` degrees Fahrenheit.
+The mean temperature recorded within the dataset timeframe is `r mean(early_january_weather$temp)` degrees Fahrenheit.
 
 ## Scatterplot
 
