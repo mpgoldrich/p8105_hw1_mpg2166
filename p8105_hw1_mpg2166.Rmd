@@ -5,13 +5,15 @@ date: "2023-09-14"
 output: github_document
 ---
 
+
 # Problem 1
 
 ## Load library and dataset
 
-Load the `moderndive` library, and load the `early_january_weather` dataset.
+Load the `moderndive` library, and load the `early_january_weather` dataset. (Also load tidyverse)
 
 ```{r}
+library(tidyverse)
 library(moderndive)
 
 data("early_january_weather")
@@ -27,18 +29,18 @@ Here are the variables included in the dataset:
 
 * `origin` is the weather station. This is EWR for all data points.
 * `year`, `month`, `day`, and `hour` represent the time of the weather recording.
-  * `year` is `r mean(early_january_weather$year)`.
-  * `month` is January, represented as `r mean(early_january_weather$month)`.
+  * `year` is `r mean(pull(early_january_weather, year))`.
+  * `month` is January, represented as `r mean(pull(early_january_weather, month))`.
 * `temp` and `dewp`are the temperature and dewpoint in F.
 * `humid` is relative humidity.
 * `wind_dir`, `wind_speed`, and `wind_gust` are wind direction (in degrees), speed and gust speed (in mph).
 * `precip` is preciptation, in inches.
-  * Mean: `r mean(early_january_weather$precip)` inches
-  * Standard deviation: `r sd(early_january_weather$precip)` inches
+  * Mean: `r mean(pull(early_january_weather, precip))` inches
+  * Standard deviation: `r sd(pull(early_january_weather, precip))` inches
 * `pressure` is sea level pressure in millibars.
 * `visib` is visibility in miles. 
-  * Mean: `r mean(early_january_weather$visib)` miles
-  * Standard deviation: `r sd(early_january_weather$precip)` miles
+  * Mean: `r mean(pull(early_january_weather, visib))` miles
+  * Standard deviation: `r sd(pull(early_january_weather, precip))` miles
 * `time_hour` is the date and hour of the recording as a `POSIXct` date.
 
 ### Size of dataset
@@ -47,7 +49,7 @@ The size of the `early_january_weather` dataset is `r nrow(early_january_weather
 
 ### Mean temperature
 
-The mean temperature recorded within the dataset timeframe is `r mean(early_january_weather$temp)` degrees Fahrenheit.
+The mean temperature recorded within the dataset timeframe is `r mean(pull(early_january_weather, temp))` degrees Fahrenheit.
 
 ## Scatterplot
 
@@ -56,8 +58,6 @@ The mean temperature recorded within the dataset timeframe is `r mean(early_janu
 Make a scatterplot of `temp` (y) vs. `time_hour` (x); color points using the `humid` variable (adding `color = ...` inside of `aes` in your `ggplot` code should help). 
 
 ```{r}
-library(tidyverse)
-
 ggplot(early_january_weather, aes(x = time_hour, y = temp, color = humid)) + geom_point()
 ```
 
